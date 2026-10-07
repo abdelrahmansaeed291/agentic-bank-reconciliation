@@ -1,0 +1,8 @@
+[
+  {"transaction_id":"TX1001","amount":1250.00,"currency":"EUR","reference":"INV-1001","counterparty":"Northstar Components","status":"UNRECONCILED"},
+  {"transaction_id":"TX1002","amount":750.50,"currency":"EUR","reference":"INV-1002","counterparty":"Blue Harbor Trading","status":"UNRECONCILED"},
+  {"transaction_id":"TX1003","amount":980.00,"currency":"EUR","reference":"INV-1003","counterparty":"Cedar Works","status":"UNRECONCILED"},
+  {"transaction_id":"TX1004","amount":430.00,"currency":"EUR","reference":null,"counterparty":"Lumen Office Supplies","status":"UNRECONCILED"},
+  {"transaction_id":"TX1005","amount":1600.00,"currency":"USD","reference":"INV-1005","counterparty":"Fictional Atlas GmbH","status":"UNRECONCILED"},
+  {"transaction_id":"TX1006","amount":299.99,"currency":"EUR","reference":"INV-9999","counterparty":"Orchard Systems","status":"UNRECONCILED"}
+]

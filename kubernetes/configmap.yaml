@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: reconciliation-config
+  namespace: bank-reconciliation
+data:
+  LLM_PROVIDER: demo
+  BANKING_SERVICE_URL: http://banking-service:8001
+  AGENT_SERVICE_URL: http://agent-service:8000
+  AWS_REGION: eu-central-1

@@ -1,0 +1,7 @@
+[
+  {"invoice_reference":"INV-1001","expected_amount":1250.00,"currency":"EUR","customer":"Northstar Components"},
+  {"invoice_reference":"INV-1002","expected_amount":750.50,"currency":"EUR","customer":"Blue Harbor Trading"},
+  {"invoice_reference":"INV-1003","expected_amount":1000.00,"currency":"EUR","customer":"Cedar Works"},
+  {"invoice_reference":"INV-1004","expected_amount":430.00,"currency":"EUR","customer":"Lumen Office Supplies"},
+  {"invoice_reference":"INV-1005","expected_amount":1600.00,"currency":"EUR","customer":"Fictional Atlas GmbH"}
+]

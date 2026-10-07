@@ -1,0 +1,9 @@
+fastapi==0.115.12
+httpx==0.28.1
+langgraph==0.4.8
+pydantic==2.11.5
+pytest==8.3.5
+pytest-asyncio==0.26.0
+uvicorn[standard]==0.34.2
+
+# Optional: install boto3 to enable LLM_PROVIDER=bedrock.
