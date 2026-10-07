@@ -1,0 +1,18 @@
+apiVersion: kind.x-k8s.io/v1alpha4
+kind: Cluster
+
+# Docker Desktop may need extra time to unpack the control-plane images on the
+# first start. Keep this aligned with kind v0.33's kubeadm v1beta3 output.
+kubeadmConfigPatches:
+  - |
+    apiVersion: kubeadm.k8s.io/v1beta3
+    kind: ClusterConfiguration
+    timeoutForControlPlane: 5m0s
+
+nodes:
+  - role: control-plane
+    extraPortMappings:
+      - containerPort: 30080
+        hostPort: 30080
+        listenAddress: "127.0.0.1"
+        protocol: TCP

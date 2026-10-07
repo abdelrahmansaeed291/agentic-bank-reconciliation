@@ -166,17 +166,19 @@ docker build -t agentic-bank-reconciliation/agent-service:latest -f agent-servic
 docker build -t agentic-bank-reconciliation/frontend:latest ./frontend
 ```
 
-Load them into kind if needed, then deploy:
+Create the local cluster with the pinned Kubernetes image. The custom config
+allows extra startup time on Docker Desktop and maps the frontend NodePort:
 
 ```bash
-kind load docker-image agentic-bank-reconciliation/banking-service:latest
-kind load docker-image agentic-bank-reconciliation/agent-service:latest
-kind load docker-image agentic-bank-reconciliation/frontend:latest
+kind create cluster --name bank-reconciliation --config kind-config.yaml --image kindest/node:v1.34.3@sha256:08497ee19eace7b4b5348db5c6a1591d7752b164530a36f855cb0f2bdcbadd48 --wait 7m
+kind load docker-image agentic-bank-reconciliation/banking-service:latest agentic-bank-reconciliation/agent-service:latest agentic-bank-reconciliation/frontend:latest --name bank-reconciliation
 kubectl apply -f kubernetes/
+kubectl wait --for=condition=available deployment --all -n bank-reconciliation --timeout=5m
 kubectl get pods -n bank-reconciliation
 ```
 
-The frontend Service uses NodePort `30080`. With kind, `kubectl port-forward -n bank-reconciliation service/frontend 8501:8501` is often the simplest access method.
+Open <http://localhost:30080>. The frontend Service uses NodePort `30080`,
+which `kind-config.yaml` maps to the same host port.
 
 ## AWS architecture
 
