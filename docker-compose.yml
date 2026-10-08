@@ -2,8 +2,6 @@ services:
   banking-service:
     build:
       context: ./banking-service
-    ports:
-      - "8001:8001"
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/health')"]
       interval: 5s
@@ -21,8 +19,6 @@ services:
       LLM_PROVIDER: ${LLM_PROVIDER:-demo}
       AWS_REGION: ${AWS_REGION:-eu-central-1}
       BEDROCK_MODEL_ID: ${BEDROCK_MODEL_ID:-anthropic.claude-3-5-sonnet-20240620-v1:0}
-    ports:
-      - "8000:8000"
     depends_on:
       banking-service:
         condition: service_healthy
